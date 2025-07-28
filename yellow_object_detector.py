@@ -18,13 +18,10 @@ while True:
     bbox = mask_.getbbox()
 
     if bbox:
-       frame = cv.rectangle(frame,(bbox[0],bbox[1]),(bbox[2],bbox[3]),(0,0,255),5)
+       frame = cv.rectangle(frame,(bbox[0],bbox[1]),(bbox[2],bbox[3]),(0,255,0),5)
 
 
     cv.imshow('mask',frame)
-
-
-
 
     
     if cv.waitKey(1) & 0xFF == ord('q'):
