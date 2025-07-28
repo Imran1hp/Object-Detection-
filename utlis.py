@@ -2,7 +2,7 @@ import cv2 as cv
 import numpy as np
 
 def rectContour(contours):
-    rectContour =[]
+    rectCon =[]
     for i in contours:
      area = cv.contourArea(i)
     
@@ -10,5 +10,14 @@ def rectContour(contours):
         peri = cv.arcLength(i,True)
         approx = cv.approxPolyDP(i,0.02*peri,True)
         if len(approx)==4:
-            rectContour.append(i)
+            rectCon.append(i)
     
+    rectCon = sorted(rectCon,key=cv.contourArea,reverse=True) 
+
+    return rectCon
+
+
+def getconnerPoints(cont):
+   peri = cv.arcLength(cont,True)
+   approx = cv.approxPolyDP(cont,0.02*peri,True)
+   return approx

@@ -1,11 +1,12 @@
 import cv2 as cv 
 import numpy as np 
-from utlis import rectContour
+from utlis import rectContour,getconnerPoints
 
 img = cv.imread('Photos/omr2.png',)
 cv.imshow('omr',img,)
 img = cv.resize(img,(600,600))
 img_contour=img.copy()
+img_biggest_contour = img.copy()
 gray_omr = cv.cvtColor(img,cv.COLOR_BGR2GRAY)
 cv.imshow('gray_omr',gray_omr)
 
@@ -21,9 +22,17 @@ cv.drawContours(img_contour,contours,-1,(0,255,0),2)
 
 cv.imshow('countours',img_contour)
 
-rectContour(contours)
+rectCon = rectContour(contours)
+biggestContour  = getconnerPoints(rectCon[0])
+gradePoint = getconnerPoints(rectCon[1])
 
 
+if biggestContour.size !=0 and gradePoint.size !=0:
+    cv.drawContours(img_biggest_contour,biggestContour,-1,(0,255,0),20)
+    cv.drawContours(img_biggest_contour,gradePoint,-1,(255,0,0),20)
+
+cv.imshow('biggestContour',img_biggest_contour)
+cv.imshow('gradePoint',img_biggest_contour)
 
 
 
