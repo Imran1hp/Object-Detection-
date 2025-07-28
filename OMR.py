@@ -1,5 +1,6 @@
 import cv2 as cv 
 import numpy as np 
+from utlis import rectContour
 
 img = cv.imread('Photos/omr2.png',)
 cv.imshow('omr',img,)
@@ -20,7 +21,7 @@ cv.drawContours(img_contour,contours,-1,(0,255,0),2)
 
 cv.imshow('countours',img_contour)
 
-
+rectContour(contours)
 
 
 
