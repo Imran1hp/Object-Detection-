@@ -21,3 +21,8 @@ def getconnerPoints(cont):
    peri = cv.arcLength(cont,True)
    approx = cv.approxPolyDP(cont,0.02*peri,True)
    return approx
+
+
+def reorder(my_point):
+   my_point = my_point.reshape((4,2))
+   add = my_point.sum(1)
