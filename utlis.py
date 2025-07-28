@@ -10,4 +10,5 @@ def get_limits(color):
 
     lowerLimit = np.array(lowerLimit,dtype=np.uint8)
     upperLimit = np.array(upperLimit,dtype=np.uint8)
+    
     return lowerLimit,upperLimit
