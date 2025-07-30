@@ -1,67 +1,85 @@
-# 👁️🧠 Eyes and Face Detector using OpenCV
+# 🧠🎯 Real-Time Object Detection with OpenCV
 
-A real-time computer vision project that uses OpenCV to detect **faces** and **eyes** via your webcam. Built with Python, this project demonstrates how to apply Haar Cascade Classifiers for object detection!
+Welcome to the **Real-Time Object Detection** project! This repository contains two exciting computer vision projects:
 
----
+1. 😃 **Face & Eye Detection** using Haar cascades
+2. 💛 **Yellow Object Detection** using HSV color masking
 
-## 🚀 Features
-
-- 🎥 Real-time webcam feed
-- 😃 Face detection using Haar cascades
-- 👀 Eye detection within detected faces
-- 🧰 Easy-to-read modular code
-- ⌨️ Quit the stream with a single key press (`q`)
+Both applications use **OpenCV**, **NumPy**, and **Pillow** to demonstrate real-time video processing with your webcam.
 
 ---
 
-## 🛠️ Requirements
+## 📁 Project Files
 
-Install the dependencies from `requirement.txt`:
 
-```bash
+├── eyes_face_detector.py        # Detects faces and eyes in real-time
+├── yellow_object_detector.py    # Detects yellow-colored objects using HSV masking
+├── utlis.py                     # Helper function to get HSV color limits
+├── requirement.txt              # List of required Python packages
+└── README.md                    # This file!
+🛠️ Requirements
+Install dependencies using:
+
+bash
+Copy code
 pip install -r requirement.txt
-Contents of requirement.txt:
+📦 Required Packages:
 
 text
 Copy code
 opencv-python
 numpy
 pillow
-📁 Project Structure
-plaintext
-Copy code
-├── eyes_face_detector.py  # Main script for real-time detection
-├── utlis.py               # Helper function for color limit conversion (HSV)
-├── requirement.txt        # Required packages
-└── README.md              # You're reading it!
-🧪 How It Works
-Face Detection: Uses haarcascade_frontalface_default.xml to locate faces in frames.
+👁️😃 Face & Eye Detection (eyes_face_detector.py)
+This script:
 
-Eye Detection: Uses haarcascade_eye.xml to locate eyes inside detected face regions.
+Uses Haar cascades to detect faces and eyes
 
-Drawing Boxes: Detected features are marked using colored rectangles (blue for face, green for eyes).
+Draws rectangles over detected features
 
-Helper (utlis.py): Contains a function to compute HSV limits for color filtering (not used in the main script but reusable).
+Opens a webcam feed
 
-▶️ Usage
-Run the following command in your terminal:
+Press q to quit
 
+✅ How to Run
 bash
 Copy code
 python eyes_face_detector.py
-A window will open with your webcam feed showing face and eye detection.
+🟦 Face detection → Blue box
+🟩 Eye detection → Green box
 
-Press q to quit the program.
+💛 Yellow Object Detection (yellow_object_detector.py)
+This script:
 
-📸 Preview
-(Add screenshots or a demo GIF here if available)
+Detects yellow color using HSV color space
 
-✨ Future Improvements
-Add screenshot capture feature 📷
+Uses Pillow to get bounding boxes around yellow objects
 
-Save detected faces for training models
+Draws rectangles over detected yellow areas
 
-Use deep learning models for improved accuracy (e.g. DNN or MTCNN)
+Press q to quit
 
-👨‍💻 Author
-Made with ❤️ using OpenCV & Python
+✅ How to Run
+bash
+Copy code
+python yellow_object_detector.py
+🟨 Yellow objects → Green bounding box
+
+🧠 Utility Script (utlis.py)
+The get_limits(color) function helps compute HSV boundaries for BGR colors. It supports easy color-based masking.
+
+python
+Copy code
+lowerLimit, upperLimit = get_limits((0, 255, 255))  # Yellow
+💡 Possible Improvements
+Add GUI for switching between detection modes
+
+Save output to video or image files
+
+Extend color detection to support multiple colors
+
+Integrate face landmark or object tracking models
+
+🧑‍💻 Author
+Made with 🐍 Python and ❤️ Passion for Computer Vision.
+
